@@ -186,5 +186,16 @@
         </div>
 
         <div class="form-group">
-            <label>O segurado já sofreu qualquer tipo de reclamação extrajudicial, processo judicial civil, criminal ou ético administrativo por dano(s) causado(s) pela prestação de seus serviços nos últimos 5 anos? Se sim, quantas?</label>
-            <textarea id="reclamacoes" name
+        <label>O segurado tem conhecimento de qualquer fato ou circunstância que possa gerar uma reclamação extrajudicial, processo judicial civil, criminal ou ético administrativo ou de qualquer tipo similar de pedido de reparação de dano(s) causado(s) pela prestação de seus serviços?</label>
+        <div class="radio-group">
+            <input type="radio" name="conhecimento_previo" value="Sim" id="conhecimento_sim" required>
+            <label for="conhecimento_sim">Sim</label>
+            
+            <input type="radio" name="conhecimento_previo" value="Não" id="conhecimento_nao" required>
+            <label for="conhecimento_nao">Não</label>
+        </div>
+    </div>
+
+    <button type="button" class="btn" onclick="window.print()">Imprimir</button>
+    <button type="button" class="btn" onclick="compartilharWhatsApp()">Compartilhar</button>
+</form>�
