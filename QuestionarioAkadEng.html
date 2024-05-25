@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cotação e Contratação</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group input[type="checkbox"] {
+            width: auto;
+        }
+        .form-group .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .form-group .checkbox-group label {
+            width: 50%;
+            padding-right: 10px;
+            box-sizing: border-box;
+        }
+        .form-group .checkbox-group label input {
+            margin-right: 5px;
+        }
+        .form-group .radio-group {
+            display: flex;
+            justify-content: space-between;
+        }
+        .form-group .radio-group label {
+            width: 48%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #e9e9e9;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-group .radio-group input {
+            display: none;
+        }
+        .form-group .radio-group input:checked + label {
+            background-color: #007BFF;
+            color: #fff;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        @media (max-width: 600px) {
+            .form-group .checkbox-group label {
+                width: 100%;
+            }
+            .form-group .radio-group label {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Cotação e Contratação</h2>
+    <p>Essa condição é exclusiva para clientes que não possuem apólice do mesmo risco vigente, para dúvidas, entre em contato com seu corretor através do WhatsApp.</p>
+    
+    <form action="submit_form.php" method="post">
+        <div class="form-group">
+            <label>Tipo de Cliente:</label>
+            <div class="radio-group">
+                <input type="radio" name="tipo_cliente" value="Pessoa Física" id="pf" required>
+                <label for="pf">Pessoa Física</label>
+                
+                <input type="radio" name="tipo_cliente" value="Pessoa Jurídica" id="pj" required>
+                <label for="pj">Pessoa Jurídica</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="razao_social">Razão Social:</label>
+            <input type="text" id="razao_social" name="razao_social" required>
+        </div>
+
+        <div class="form-group">
+            <label for="cnpj">CNPJ:</label>
+            <input type="text" id="cnpj" name="cnpj" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="crea_cau">CREA/CAU:</label>
+            <input type="text" id="crea_cau" name="crea_cau" required>
+        </div>
+
+        <div class="form-group">
+            <label for="especialidade_uso">Especialidade de Uso:</label>
+            <select id="especialidade_uso" name="especialidade_uso" required>
+                <option value="Projeto e Execução">Projeto e Execução</option>
+                <option value="Projeto">Projeto</option>
+                <option value="Execução">Execução</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="faturamento_anual">Faturamento Anual Bruto do Último Exercício:</label>
+            <select id="faturamento_anual" name="faturamento_anual" required>
+                <option value="">Selecione o faturamento</option>
+                <option value="0-100k">0-100k</option>
+                <option value="100k-500k">100k-500k</option>
+                <option value="500k-1M">500k-1M</option>
+                <option value="1M-5M">1M-5M</option>
+                <option value="5M+">5M+</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Atividade Segurada:</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="atividade_segurada[]" value="Arquitetura"> Arquitetura</label>
+                <label><input type="checkbox" name="atividade_segurada[]" value="Estrutural"> Estrutural</label>
+                <label><input type="checkbox" name="atividade_segurada[]" value="Agricultura"> Agricultura</label>
+                <label><input type="checkbox" name="atividade_segurada[]" value="Agrimensura"> Agrimensura</label>
+                <label><input type="checkbox" name="atividade_segurada[]" value="Alimentos"> Alimentos</label>
+                <label><input type="checkbox" name="atividade_segurada[]" value="Construção Civil"> Construção Civil</label>
+                <label><input type="checkbox" name="atividade_segurada[]" value="Elétrica"> Elétrica</label>
+                <label><input type="checkbox" name="atividade_segurada[]" value="Mecânica"> Mecânica</label>
+                <label><input type="checkbox" name="atividade_segurada[]" value="Meteorologia"> Meteorologia</label>
+                <label><input type="checkbox" name="atividade_segurada[]" value="Química"> Química</label>
+                <label><input type="checkbox" name="atividade_segurada[]" value="Têxtil"> Têxtil</label>
+                <label><input type="checkbox" name="atividade_segurada[]" value="Aeroespacial ou Naval"> Aeroespacial ou Naval</label>
+                <label><input type="checkbox" name="atividade_segurada[]" value="Geologia ou Geotecnia"> Geologia ou Geotecnia</label>
+                <label><input type="checkbox" name="atividade_segurada[]" value="Metrô e Obras de Arte"> Metrô e Obras de Arte</label>
+                <label><input type="checkbox" name="atividade_segurada[]" value="Mineração e Barragens e Petróleo"> Mineração e Barragens e Petróleo</label>
+                <label><input type="checkbox" name="atividade_segurada[]" value="Serviços Offshore"> Serviços Offshore</label>
+                <label><input type="checkbox" name="atividade_segurada[]" value="Aeronáutica"> Aeronáutica</label>
+                <label><input type="checkbox" name="atividade_segurada[]" value="Meio Ambiente"> Meio Ambiente</label>
+                <label><input type="checkbox" name="atividade_segurada[]" value="Agronomia"> Agronomia</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="sinistros">Sinistros nos últimos 5 anos:</label>
+            <textarea id="sinistros" name="sinistros" rows="3" placeholder="Descreva os sinistros, se houver"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>O segurado já sofreu qualquer tipo de reclamação extrajudicial, processo judicial civil, criminal ou ético administrativo por dano(s) causado(s) pela prestação de seus serviços nos últimos 5 anos? Se sim, quantas?</label>
+            <textarea id="reclamacoes" name
